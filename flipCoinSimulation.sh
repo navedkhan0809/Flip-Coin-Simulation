@@ -1,5 +1,7 @@
 #!/bin/bash -x
 
+#function
+function func() {
 i=0
 j=0
 k=0
@@ -31,10 +33,25 @@ do
 	fi
 i=$(($i + 1))
 done
+}
+
+func
 
 if [ $count1 == $count2 ]
 then
-	echo "Its tie"
+	echo "It is tie"
+	echo "Game continues..."
+	sleep 2
+	for ((g=0; g<=50; g++))
+	do
+		func
+		diff=$(($j-$k))
+		if [ $diff == 2 ]
+		then
+			echo "Diffrence of minimum 2 points is achieved!!!"
+			break
+		fi
+	done
 else
 	if [ $count1 == 1 ]
 	then
